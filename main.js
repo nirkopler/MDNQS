@@ -2,13 +2,13 @@
 
 //get data from background.js and display in popup.html
 document.getElementById('searchBtn').addEventListener("click", () => {
-    //get data from input
-    const searchInp = document.getElementById('query');
-    //send massege to background.js
-    chrome.runtime.sendMessage({query: searchInp.value}, (res) => {
+    chrome.storage.sync.get(['query'], (res) => {
+        //send massege to background.js
+        chrome.runtime.sendMessage({query: res.query}, (res) => {
         //callback when get results
         console.log(res.data);
         displayResults(res.data);
+        });
     });
 });
 

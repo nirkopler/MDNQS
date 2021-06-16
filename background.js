@@ -10,6 +10,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 //open popup on click 
 chrome.action.setPopup({popup: "popup.html"});
 
+//set context menu
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.contextMenus.create({
+    "id": "Context Manu",
+    "title": "MDNQS",
+    "contexts": ["selection"]
+  });
+});
+
 async function getMDNdata(query) {
   const res = await fetch(`https://developer.mozilla.org/api/v1/search?q=${query}&locale=en-US`);
   const data = await res.json()
