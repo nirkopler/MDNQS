@@ -34,7 +34,7 @@ body {
     margin: 0px;
 }
 
-a.btn:link, a.btn:visited {
+a.btn, a.btn:link, a.btn:visited {
     border: 1px solid DarkBlue;
     border-radius: 5px;
     font-size: 5vw;
@@ -51,4 +51,14 @@ a.btn:hover {
 
 .summary {
     font-size: 4vw;
+}
+
+#moreButtonDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5px;
+    padding: 5px 0px;
+    font-size: 6vw;
+    background-color: lightcoral;
 }
