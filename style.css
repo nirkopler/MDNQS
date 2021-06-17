@@ -3,10 +3,7 @@ body {
     width: 400px;
     font-family: monospace;
     color: DarkBlue;
-}
-
-#container {
-    overflow: hidden; 
+    overflow: auto;
 }
 
 .resDiv {
@@ -53,5 +50,5 @@ a.btn:hover {
 }
 
 .summary {
-    font-size: 3vw;
+    font-size: 4vw;
 }

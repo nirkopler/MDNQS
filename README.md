@@ -17,6 +17,9 @@ MDNQS is a chrome extention that helps you to learn about new syntax.
 * created basic UI
 
 ## ToDo List :fire:
+* add context menu
 * add option page for color selection
-* add CSS animations
+* add searchbar option
+* add commands shortkeys
 * add color names (background & text)
+* add CSS animations

@@ -31,6 +31,7 @@ function createResultContainer(data) {
             //create the title Div
             const titleDiv = document.createElement('div');
             titleDiv.setAttribute('class', 'titleDiv');
+            titleDiv.onclick = () => {toggleSummary(i)}; //adding toggle divs//
             resDiv.appendChild(titleDiv);
 
             //create the summary Div
@@ -42,7 +43,6 @@ function createResultContainer(data) {
             const title = document.createElement('h1');
             title.setAttribute('class', 'title');
             title.setAttribute('id', "title-" + i);
-            title.onclick = () => {toggleSummary(i)};
             title.innerText = r.title;
             titleDiv.appendChild(title);
 
@@ -71,16 +71,13 @@ function createResultContainer(data) {
 function toggleSummary(id) {
     const s = document.getElementById("summary-" + id);
     const containerCount = document.getElementById("container").childElementCount;
+    //closes all results != current result
     for (let res = 0; res < containerCount; res++) {
         if(res != id) {
             document.getElementById("summary-" + res).style.display = "none";
             s.style.display = "none";
         }
     }
-    if (s.style.display === "none") {
-        s.style.display = "block";
-    } else {
-        s.style.display = "none";
-
-  }
+    //toggle current result by click
+    (s.style.display === "none") ? s.style.display = "block" : s.style.display = "none";
 }
