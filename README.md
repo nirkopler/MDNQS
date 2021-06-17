@@ -4,6 +4,7 @@ MDNQS is a chrome extention that helps you to learn about new syntax.
 
 ## Progress :muscle:
 ### 17/6/21 - Big UI Upgrade
+* added new icons
 * added results by pages - added MORE button
 * upgraded UI
 * reconstruct results structure (flexbox instead table)
