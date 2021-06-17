@@ -60,5 +60,7 @@ a.btn:hover {
     margin: 5px;
     padding: 5px 0px;
     font-size: 6vw;
-    background-color: lightcoral;
+    border: 1px solid DarkBlue;
+    border-radius: 5px;
+    background-color: LightPink;
 }

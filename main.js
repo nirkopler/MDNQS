@@ -1,4 +1,7 @@
-//test
+// ----- MDNQS by Nir Kopler -----
+console.log('----- MDNQS by Nir Kopler -----');
+
+//GLOBAL VARIABLES
 let moreBtn = 0;
 let globalData;
 
@@ -65,7 +68,8 @@ function createResDiv(r, i) {
     //create the title Div
     const titleDiv = document.createElement('div');
     titleDiv.setAttribute('class', 'titleDiv');
-    titleDiv.onclick = () => {toggleSummary(i)}; //adding toggle divs//
+    // --- add toggle function for all resDivs ---
+    titleDiv.onclick = () => {toggleSummary(i)};
     resDiv.appendChild(titleDiv);
 
     //create the summary Div
@@ -92,7 +96,8 @@ function createResDiv(r, i) {
     const summary = document.createElement('p');
     summary.setAttribute('class', 'summary');
     summary.setAttribute('id', "summary-" + i);
-    (i != 0) ? summary.style.display = 'none' : null;
+    // --- sets all first resDiv display Block ---
+    ((i != 0) && (i != 3) && (i != 6)) ? summary.style.display = 'none' : null;
     summary.innerText = r.summary;
     summaryDiv.appendChild(summary);
 
@@ -102,15 +107,36 @@ function createResDiv(r, i) {
 
 //toggle results
 function toggleSummary(id) {
+    //current summary id
     const s = document.getElementById("summary-" + id);
-    const containerCount = document.getElementById("container").childElementCount;
+
     //closes all results != current result
-    for (let res = 0; res < containerCount; res++) {
-        if(res != id) {
-            document.getElementById("summary-" + res).style.display = "none";
-            s.style.display = "none";
-        }
+    switch (moreBtn) {
+        case 0 :
+            for (let res = 0; res < 3; res++) {
+                if(res != id) {
+                    document.getElementById("summary-" + res).style.display = "none";
+                }
+            }
+            break;
+        
+        case 1 :
+            for (let res = 3; res < 6; res++) {
+                if(res != id*moreBtn) {
+                    document.getElementById("summary-" + res).style.display = "none";
+                }
+            }
+            break;
+
+        case 2 :
+            for (let res = 6; res < 8; res++) {
+                if(res != id*moreBtn) {
+                    document.getElementById("summary-" + res).style.display = "none";
+                }
+            }
+            break;
     }
+
     //toggle current result by click
     (s.style.display === "none") ? s.style.display = "block" : s.style.display = "none";
 }
