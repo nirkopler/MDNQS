@@ -7,8 +7,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 );
 
-//open popup on click 
-chrome.action.setPopup({popup: "popup.html"});
+// //open popup on click 
+// chrome.action.setPopup({popup: "popup.html"});
 
 //set context menu
 chrome.runtime.onInstalled.addListener(() => {

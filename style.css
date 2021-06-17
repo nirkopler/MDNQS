@@ -1,0 +1,57 @@
+body {
+    background-color: Azure;
+    width: 400px;
+    font-family: monospace;
+    color: DarkBlue;
+}
+
+#container {
+    overflow: hidden; 
+}
+
+.resDiv {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid DarkBlue;
+    margin: 5px;
+}
+
+.titleDiv {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.summaryDiv {
+    display: flex;
+    padding: 5px;
+}
+
+.title {
+    font-size: 6vw;
+    word-break: break-all;
+    margin: 0px;
+}
+
+a.btn:link, a.btn:visited {
+    border: 1px solid DarkBlue;
+    border-radius: 5px;
+    font-size: 5vw;
+    margin: 0px;
+    padding: 5px 10px;
+    color: DarkBlue;
+    text-decoration: none;
+    background-color: LightYellow ;
+}
+
+a.btn:hover {
+    background-color: LavenderBlush;
+}
+
+.summary {
+    font-size: 3vw;
+}
