@@ -4,6 +4,7 @@ body {
     font-family: monospace;
     color: DarkBlue;
     overflow: auto;
+    /* add cursor style - cursor:cell; */
 }
 
 .resDiv {
@@ -21,6 +22,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 5px;
+    cursor:pointer;
 }
 
 .summaryDiv {
@@ -63,4 +65,41 @@ a.btn:hover {
     border: 1px solid DarkBlue;
     border-radius: 5px;
     background-color: LightPink;
+    cursor:pointer;
+}
+
+#moreButtonDiv:hover {
+    background-color: #f7c0f7;
+}
+
+#searchBarDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5px;
+    padding: 5px 0px;
+}
+
+#searchBar {
+    width: 100%;
+    text-align: center;
+    font-family: monospace;
+    text-transform: uppercase;
+    font-size: 6vw;
+    color: DarkBlue;
+    background-color: LightYellow;
+    border: 1px solid DarkBlue;
+    border-radius: 5px;
+    cursor:help;
+}
+
+#searchBar::placeholder {
+    color: DarkBlue;
+}
+
+#searchBar:focus {
+    outline: none;
+    background-color: LavenderBlush;
+    caret-color: transparent;
+    font-weight: bold;
 }

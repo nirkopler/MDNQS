@@ -26,6 +26,10 @@ function createResultContainer(data) {
     const container = document.getElementById('container');
     //if container with content
     (container.children.length != 0) ? container.innerHTML = "" : null;
+    //add searchbar in container
+    createSearchbar();
+    //set focus on searchbar
+    searchBar.focus();
     //create resDiv For Each Result
     data.forEach((r, i) => {
         //if(i < 3) {createResDiv(r, i)}
@@ -46,16 +50,8 @@ function createResultContainer(data) {
                 if(i < 3) {createResDiv(r, i)};
         }
     });
-
     //add MORE button inside a div
-    const moreButton = document.createElement('a');
-    moreButton.setAttribute('id', 'moreBtn');
-    moreButton.innerText = 'MORE';
-    const moreButtonDiv = document.createElement('div');
-    moreButtonDiv.setAttribute('id', 'moreButtonDiv');
-    moreButtonDiv.onclick = () => {moreButtonAction()};
-    container.appendChild(moreButtonDiv);
-    moreButtonDiv.appendChild(moreButton);
+    createMoreBtn();
 }
 
 //create result div and apppend to container
@@ -105,6 +101,44 @@ function createResDiv(r, i) {
     container.appendChild(resDiv);
 }
 
+//create more button
+function createMoreBtn() {
+    const moreButton = document.createElement('a');
+    moreButton.setAttribute('id', 'moreBtn');
+    moreButton.innerText = 'MORE';
+    const moreButtonDiv = document.createElement('div');
+    moreButtonDiv.setAttribute('id', 'moreButtonDiv');
+    moreButtonDiv.onclick = () => {moreButtonAction()};
+    container.appendChild(moreButtonDiv);
+    moreButtonDiv.appendChild(moreButton);
+}
+
+function createSearchbar() {
+    const searchBarDiv = document.createElement('div');
+    searchBarDiv.setAttribute('id', 'searchBarDiv');
+    const searchBar = document.createElement('input');
+    searchBar.setAttribute('id', 'searchBar');
+    searchBar.type = 'text';
+    searchBar.placeholder = 'search here';
+    container.appendChild(searchBarDiv);
+    searchBarDiv.appendChild(searchBar);
+
+    //add event listener for an ENTER click => do search
+    searchBar.addEventListener("keyup", ({key}) => {
+        if (key === "Enter") {
+            // Do work
+            chrome.runtime.sendMessage({query: document.getElementById('searchBar').value}, (res) => {
+                //callback when get results
+                console.log(res.data);
+                //add data to global data
+                globalData = res.data;
+                //create divs
+                createResultContainer(res.data)
+            })
+        }
+    });
+}
+
 //toggle results
 function toggleSummary(id) {
     //current summary id
@@ -129,7 +163,7 @@ function toggleSummary(id) {
             break;
 
         case 2 :
-            for (let res = 6; res < 8; res++) {
+            for (let res = 6; res < 9; res++) {
                 if(res != id*moreBtn) {
                     document.getElementById("summary-" + res).style.display = "none";
                 }

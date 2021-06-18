@@ -1,8 +1,13 @@
 # MDNQS
 ## Summary :sunny:
-MDNQS is a chrome extention that helps you to learn about new syntax.
+MDNQS is a chrome extention that helps you learn about new syntax.
 
 ## Progress :muscle:
+### 18/6/21
+* added searchbar
+* fixed toggle bugs
+
+
 ### 17/6/21 - Big UI Upgrade
 * added new icons
 * added results by pages - added MORE button
@@ -20,8 +25,8 @@ MDNQS is a chrome extention that helps you to learn about new syntax.
 
 ## ToDo List :fire:
 * add context menu
-* add option page for color selection
-* add searchbar option
 * add commands shortkeys
-* add color names (background & text)
+* add option page for color selection
 * add CSS animations
+* build a small website around it
+* add color names (background & text)
