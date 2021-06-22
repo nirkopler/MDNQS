@@ -2,19 +2,12 @@
 
 //get query and send results of search
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-      getMDNdata(request.query).then( (res) => sendResponse({data: res}));
+      getMDNdata(request.query)
+        .then((res) => sendResponse({data: res}))
+        .catch((err) => sendResponse({err}));
       return true;
   }
 );
-
-//set context menu
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.contextMenus.create({
-    "id": "Context Manu",
-    "title": "MDNQS",
-    "contexts": ["selection"]
-  });
-});
 
 async function getMDNdata(query) {
   const res = await fetch(`https://developer.mozilla.org/api/v1/search?q=${query}&locale=en-US`);
@@ -34,22 +27,4 @@ async function getMDNdata(query) {
   // console.log(ResultArray);
 
   return ResultArray;
-}
-
-async function displayResults(foo) {
-  const tablePlace = document.getElementById('tablePlace');
-  const results = await foo;
-  for (let r of results) {
-      const newRow = tablePlace.insertRow();
-      const resultTitle = newRow.insertCell().innerText = r.title;
-      const resultSummery = newRow.insertCell().innerText = r.summary;
-      const resultUrl = newRow.insertCell().innerText = r.url;
-  }
-}
-
-function searchBtn() {
-  const tablePlace = document.getElementById('tablePlace');
-  const searchInp = document.getElementById('query');
-  (tablePlace.children.length != 0) ? document.querySelector('tbody').remove() : null;
-  displayResults(getMDNdata(searchInp.value));
 }
