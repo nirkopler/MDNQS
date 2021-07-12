@@ -3,6 +3,9 @@
 MDNQS is a chrome extention that helps you learn about new syntax.
 
 ## Progress :muscle:
+### 12/7/21
+* new app architecture - dist & landingPage
+
 ### 22/6/21
 * added attributions to bottom of results
 * added UI errors handling
