@@ -1,0 +1,53 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: monospace;
+    color: darkblue;
+    background: Azure;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 30vh;
+}
+
+h2 {
+    font-size: 5vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.container * {
+    margin: 5px;
+}
+
+#actionButton {
+    font-size: 5vh;
+    color: darkblue;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid darkblue;
+    border-radius: 5px;
+    background-color: LightPink;
+    cursor:pointer;
+    padding: 5px;
+}
+
+#actionButton:hover {
+    background-color: #f7c0f7;
+}
